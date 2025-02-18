@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            text-align: center;
+            margin-top: 50px;
+        }
+        #coin{
+            font-size: 70px;
+            margin: 20px;
+            transition: transform 0.8s ease-in-out;
+        }
+        button{
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: rgb(0, 13, 255);
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: blueviolet;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+   <h1>Flip The Coin Game 📀</h1>
+   <div id="coin">❓</div>
+   <button  onclick="flipCoin()">Flip the coin</button>
+</body>
+<script>
+    function flipCoin(){
+        let coin=document.getElementById("coin")
+        coin.style.transform="rotateY(0deg)"
+        coin.innerText="📀"
+        setTimeout(()=>{
+            let result=Math.random()<0.5?"Heads":"Tails"
+            coin.style.transform="rotateY(720deg)"
+            setTimeout(()=>{
+                coin.innerText=result==="Heads"?"Heads 📀":"Tails 📀"
+            },500)
+        },800)
+    }
+</script>
+</html>
